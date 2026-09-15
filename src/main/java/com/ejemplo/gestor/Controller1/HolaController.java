@@ -1,4 +1,4 @@
-package com.ejemplo.gestor.HolaController;
+package com.ejemplo.gestor.Controller1;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

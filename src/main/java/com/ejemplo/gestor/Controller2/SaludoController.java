@@ -35,11 +35,11 @@ public class SaludoController {
     //    return "Id del usuario: " + id;
     // }
 
-    @GetMapping("/proyectos/{proyectoId}/incidencias/{incidenciaId}")
-    public String incidenciaEnProyecto(
-        @PathVariable(name = "proyectoId") int proyectoId,
-        @PathVariable(name = "incidenciaId") int incidenciaId) {
-        return "Incidencia con id: " + incidenciaId + " en el proyecto con id: " + proyectoId;
-    }
+    //@GetMapping("/proyectos/{proyectoId}/incidencias/{incidenciaId}")
+    //public String incidenciaEnProyecto(
+    //    @PathVariable(name = "proyectoId") int proyectoId,
+    //    @PathVariable(name = "incidenciaId") int incidenciaId) {
+    //    return "Incidencia con id: " + incidenciaId + " en el proyecto con id: " + proyectoId;
+    //}
     
 }

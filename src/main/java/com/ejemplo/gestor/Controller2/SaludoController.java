@@ -15,12 +15,12 @@ public class SaludoController {
         return "Hola, " + nombre + ". Te responde mi servidor.";
     }
 
-    @GetMapping("/incidencias")
-    public String incidencias(
-        @RequestParam(name = "estado", defaultValue = "todas") String estado,
-        @RequestParam(name = "pagina", defaultValue = "1") int pagina) {
-        return "Buscando incidencias con estado: " + estado + ", en la página: " + pagina;
-    }
+    //@GetMapping("/incidencias")
+    //public String incidencias(
+    //    @RequestParam(name = "estado", defaultValue = "todas") String estado,
+    //    @RequestParam(name = "pagina", defaultValue = "1") int pagina) {
+    //    return "Buscando incidencias con estado: " + estado + ", en la página: " + pagina;
+    //}
 
     // no va este por ahora
     @GetMapping("/informes")

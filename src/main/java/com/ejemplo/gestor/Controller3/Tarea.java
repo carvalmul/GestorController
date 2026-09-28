@@ -2,26 +2,27 @@ package com.ejemplo.gestor.Controller3;
 
 public class Tarea {
 
-    private int id;
+    // Integer y Boolean envez de Int y boolean para poder ser nulos y asi poder diferenciar entre no enviado y enviado con valor false
+    private Integer id;
     private String titulo;
     private String prioridad;
-    private boolean completada;
+    private Boolean completada;
 
     public Tarea() {
     }
 
-    public Tarea(int id, String titulo, String prioridad, boolean completada) {
+    public Tarea(Integer id, String titulo, String prioridad, Boolean completada) {
         this.id = id;
         this.titulo = titulo;
         this.prioridad = prioridad;
         this.completada = completada;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,11 +42,11 @@ public class Tarea {
         this.prioridad = prioridad;
     }
 
-    public boolean isCompletada() {
+    public Boolean isCompletada() {
         return completada;
     }
 
-    public void setCompletada(boolean completada) {
+    public void setCompletada(Boolean completada) {
         this.completada = completada;
     }
 }

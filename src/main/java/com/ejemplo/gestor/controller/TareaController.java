@@ -1,4 +1,4 @@
-package com.ejemplo.gestor.Controller3;
+package com.ejemplo.gestor.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,11 +16,16 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ejemplo.gestor.memoria.*;
+
 @RestController
 @RequestMapping("/tareas")
 public class TareaController {
 
-    private final List<Tarea> tareas = new ArrayList<>();
+    private final List<Tarea> tareas;
+    public TareaController(MemoriaProyecto memoria) {
+        this.tareas = memoria.getTareas();
+    }
     private int siguienteId = 1;
 
     @GetMapping
@@ -108,6 +113,9 @@ public class TareaController {
                 }
                 if (cambios.isCompletada() != null) {
                     tarea.setCompletada(cambios.isCompletada());
+                }
+                if (cambios.getProyectoId() != null) {
+                    tarea.setProyectoId(cambios.getProyectoId());
                 }
                 return tarea;
             }

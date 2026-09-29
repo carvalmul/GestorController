@@ -1,4 +1,4 @@
-package com.ejemplo.gestor.Controller4;
+package com.ejemplo.gestor.controller;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 

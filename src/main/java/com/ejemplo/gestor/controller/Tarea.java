@@ -1,4 +1,4 @@
-package com.ejemplo.gestor.Controller3;
+package com.ejemplo.gestor.controller;
 
 public class Tarea {
 
@@ -8,14 +8,17 @@ public class Tarea {
     private String prioridad;
     private Boolean completada;
 
+    private int proyectoId;
+
     public Tarea() {
     }
 
-    public Tarea(Integer id, String titulo, String prioridad, Boolean completada) {
+    public Tarea(Integer id, String titulo, String prioridad, Boolean completada, int proyectoId) {
         this.id = id;
         this.titulo = titulo;
         this.prioridad = prioridad;
         this.completada = completada;
+        this.proyectoId = proyectoId;
     }
 
     public Integer getId() {
@@ -24,6 +27,14 @@ public class Tarea {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public int getProyectoId() {
+        return proyectoId;
+    }
+
+    public void getProyectoId(int proyectoId) {
+        this.proyectoId = proyectoId;
     }
 
     public String getTitulo() {

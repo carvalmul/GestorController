@@ -1,4 +1,4 @@
-package com.ejemplo.gestor.Controller4;
+package com.ejemplo.gestor.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,15 +9,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ejemplo.gestor.memoria.*;
 
 @RestController
 @RequestMapping("/proyectos")
 public class ProyectoController {
 
-    private final List<Proyecto> proyectos = new ArrayList<>();
+    private final List<Proyecto> proyectos;
+    private final List<Tarea> tareas;
+    public ProyectoController(MemoriaProyecto memoria) {
+        this.proyectos = memoria.getProyectos();
+        this.tareas = memoria.getTareas();
+    }
+
     private int siguienteId = 1;
 
     @GetMapping
@@ -49,6 +57,29 @@ public class ProyectoController {
         }
 
         return null;
+    }
+
+    @GetMapping("/{id}/tareas")
+    public ResponseEntity<List<Tarea>> tareasDelProyecto(
+            @PathVariable(name = "id") int id) {
+        boolean existe = false;
+        for (Proyecto proyecto : proyectos) {
+            if (proyecto.getId() == id) {
+                existe = true;
+                break;
+            }
+        }
+        if (!existe) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<Tarea> resultado = new ArrayList<>();
+        for (Tarea tarea : tareas) {
+            if (tarea.getProyectoId() == id) {
+                resultado.add(tarea);
+            }
+        }
+        return ResponseEntity.ok(resultado);
     }
 
     @PostMapping

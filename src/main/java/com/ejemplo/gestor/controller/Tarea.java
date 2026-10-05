@@ -2,13 +2,14 @@ package com.ejemplo.gestor.controller;
 
 public class Tarea {
 
-    // Integer y Boolean envez de Int y boolean para poder ser nulos y asi poder diferenciar entre no enviado y enviado con valor false
     private Integer id;
     private String titulo;
     private String prioridad;
     private Boolean completada;
-
     private int proyectoId;
+
+    // Dato interno que NO queremos mostrar en las respuestas
+    private String notaInterna = "pendiente de revisión interna";
 
     public Tarea() {
     }
@@ -33,7 +34,7 @@ public class Tarea {
         return proyectoId;
     }
 
-    public void getProyectoId(int proyectoId) {
+    public void setProyectoId(int proyectoId) {
         this.proyectoId = proyectoId;
     }
 
@@ -59,5 +60,9 @@ public class Tarea {
 
     public void setCompletada(Boolean completada) {
         this.completada = completada;
+    }
+
+    public String getNotaInterna() {
+        return notaInterna;
     }
 }

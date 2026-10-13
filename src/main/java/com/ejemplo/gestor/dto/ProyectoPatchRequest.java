@@ -4,10 +4,10 @@ import jakarta.validation.constraints.Size;
 
 public class ProyectoPatchRequest {
 
-    @Size(min = 3, max = 80)
+    @Size(min = 3, max = 80, message = "El nombre debe tener entre 3 y 80 caracteres")
     private String nombre;
 
-    @Size(max = 500)
+    @Size(max = 500, message = "La descripción no puede superar 500 caracteres")
     private String descripcion;
 
     private Boolean activo;

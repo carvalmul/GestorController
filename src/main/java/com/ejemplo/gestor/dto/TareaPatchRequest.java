@@ -3,12 +3,14 @@ package com.ejemplo.gestor.dto;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+import com.ejemplo.gestor.validacion.PrioridadValida;
+
 public class TareaPatchRequest {
 
-    @Size(min = 3, max = 120)
+    @Size(min = 3, max = 120, message = "El título debe tener entre 3 y 120 caracteres")
     private String titulo;
 
-    @Pattern(regexp = "baja|media|alta")
+    @PrioridadValida
     private String prioridad;
 
     private Boolean completada;

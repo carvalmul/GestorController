@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ejemplo.gestor.dto.TareaResponse;
+import com.ejemplo.gestor.error.RecursoNoEncontradoException;
 import com.ejemplo.gestor.memoria.MemoriaProyecto;
 import com.ejemplo.gestor.dto.TareaRequest;
 import com.ejemplo.gestor.dto.TareaPatchRequest;
@@ -52,14 +53,14 @@ public class TareaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TareaResponse> detalle(@PathVariable(name = "id") int id) {
+    public TareaResponse detalle(@PathVariable(name = "id") int id) {
 
         Tarea tareaEncontrada = buscar(id);
 
         if (tareaEncontrada == null) {
-            return ResponseEntity.notFound().build();
+            throw new RecursoNoEncontradoException("tarea", id);
         }
-        return ResponseEntity.ok(TareaMapper.aRespuesta(tareaEncontrada));
+        return TareaMapper.aRespuesta(tareaEncontrada);
     }
 
     @PutMapping("/{id}")
@@ -70,7 +71,7 @@ public class TareaController {
         Tarea tarea = buscar(id);
 
         if (tarea == null) {
-            return ResponseEntity.notFound().build();
+            throw new RecursoNoEncontradoException("tarea", id);
         }
 
         TareaMapper.aplicar(peticion, tarea);
@@ -109,7 +110,7 @@ public class TareaController {
         Tarea tarea = buscar(id);
 
         if (tarea == null) {
-            return ResponseEntity.notFound().build();
+            throw new RecursoNoEncontradoException("tarea", id);
         }
 
         TareaMapper.aplicar(cambios, tarea);

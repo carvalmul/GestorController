@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 public class ProyectoRequest {
 
+    // DTO de entrada para crear o reemplazar un proyecto.
+    // Este objeto corresponde al JSON que llega desde el cliente y se valida antes de llegar al service.
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min = 3, max = 80, message = "El nombre debe tener entre 3 y 80 caracteres")
     private String nombre;

@@ -7,6 +7,8 @@ import com.ejemplo.gestor.validacion.PrioridadValida;
 
 public class TareaPatchRequest {
 
+    // DTO para actualizaciones parciales de una tarea.
+    // Se usa cuando el cliente solo quiere cambiar algunos campos, no toda la entidad.
     @Size(min = 3, max = 120, message = "El título debe tener entre 3 y 120 caracteres")
     private String titulo;
 

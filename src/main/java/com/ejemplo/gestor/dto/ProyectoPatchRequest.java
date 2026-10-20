@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Size;
 
 public class ProyectoPatchRequest {
 
+    // DTO para actualizaciones parciales de un proyecto.
+    // Solo incluye los campos que pueden modificarse sin reemplazar el proyecto completo.
     @Size(min = 3, max = 80, message = "El nombre debe tener entre 3 y 80 caracteres")
     private String nombre;
 

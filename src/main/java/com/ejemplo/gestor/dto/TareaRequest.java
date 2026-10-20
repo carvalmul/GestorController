@@ -9,6 +9,8 @@ import com.ejemplo.gestor.validacion.PrioridadValida;
 
 public class TareaRequest {
 
+    // DTO de entrada para crear o reemplazar una tarea.
+    // Debe incluir el título, la prioridad y el proyecto al que pertenece.
     @NotBlank(message = "El título es obligatorio")
     @Size(min = 3, max = 120,
           message = "El título debe tener entre 3 y 120 caracteres")

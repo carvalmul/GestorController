@@ -8,6 +8,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+// Anotación de validación propia.
+// Se usa en DTOs para asegurar que una tarea solo pueda tener prioridad baja, media o alta.
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = PrioridadValidaValidator.class)

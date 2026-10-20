@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class Incidencia {
 
+    // Clase auxiliar de ejemplo para representar incidencias.
+    // No participa en el flujo principal de proyectos/tareas, pero sirve como modelo de dominio independiente.
     private int id;
     private String titulo;
     private int prioridad;
